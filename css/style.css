@@ -1,0 +1,329 @@
+/* 
+   Student Enrollment Web Form - Custom Glassmorphic Dark-Mode Stylesheet
+   Using modern Outfit font, glowing input fields, and smooth micro-animations.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #07070a;
+    --bg-card: rgba(18, 18, 29, 0.65);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-focus: rgba(168, 85, 247, 0.5);
+    
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-disabled: rgba(255, 255, 255, 0.3);
+    
+    --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+    --accent-gradient-hover: linear-gradient(135deg, #7c3aed 0%, #c084fc 100%);
+    --reset-gradient: linear-gradient(135deg, #334155 0%, #475569 100%);
+    
+    --glow-shadow: 0 0 15px rgba(168, 85, 247, 0.35);
+    --glow-btn-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+    --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(217, 70, 239, 0.12) 0%, transparent 40%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    overflow-x: hidden;
+}
+
+/* Glass Card Layout */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    box-shadow: var(--card-shadow);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 800px;
+    transition: var(--transition-smooth);
+    animation: fadeInSlide 0.6s ease-out;
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(139, 92, 246, 0.05);
+}
+
+/* Settings Glass Card */
+.settings-card {
+    background: rgba(15, 15, 25, 0.4);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    transition: var(--transition-smooth);
+}
+
+.settings-card.expanded {
+    border-style: solid;
+    border-color: rgba(168, 85, 247, 0.25);
+    background: rgba(15, 15, 25, 0.7);
+}
+
+.settings-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.settings-toggle-btn:hover {
+    color: var(--text-primary);
+}
+
+.settings-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.settings-toggle-btn.active i {
+    transform: rotate(180deg);
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    transition: var(--transition-smooth);
+}
+
+.input-group-text {
+    background-color: rgba(15, 23, 42, 0.5);
+    border: 1px solid var(--border-glass);
+    color: var(--text-muted);
+    border-radius: 12px 0 0 12px;
+}
+
+.form-control, .form-select {
+    background-color: rgba(15, 23, 42, 0.4);
+    border: 1px solid var(--border-glass);
+    color: var(--text-primary);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: rgba(15, 23, 42, 0.6);
+    border-color: #a855f7;
+    color: var(--text-primary);
+    box-shadow: var(--glow-shadow);
+    outline: none;
+}
+
+/* Custom styles for input group focus */
+.input-group:focus-within .input-group-text {
+    border-color: #a855f7;
+    color: #a855f7;
+}
+
+/* Disabled Form Controls */
+.form-control:disabled, .form-select:disabled, .input-group-text.disabled-addon {
+    background-color: rgba(15, 23, 42, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.04) !important;
+    color: var(--text-disabled) !important;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.form-control:disabled::placeholder {
+    color: rgba(255, 255, 255, 0.15);
+}
+
+/* Form Focus Animations */
+.form-control:focus + .form-label, .form-control:not(:placeholder-shown) + .form-label {
+    color: #a855f7;
+}
+
+/* Premium Buttons */
+.btn-primary-gradient {
+    background: var(--accent-gradient);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-gradient-hover);
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
+
+.btn-primary-gradient:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-btn-shadow);
+}
+
+.btn-primary-gradient:hover:not(:disabled)::before {
+    opacity: 1;
+}
+
+.btn-primary-gradient:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+.btn-secondary-gradient {
+    background: var(--reset-gradient);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+}
+
+.btn-secondary-gradient:hover:not(:disabled) {
+    background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-secondary-gradient:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+/* Button Disabled States */
+.btn:disabled {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.02) !important;
+    color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Page Header */
+.form-header h2 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+/* Glass Toast Notification */
+.glass-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(18, 18, 29, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+    z-index: 1050;
+    transform: translateY(150%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 400px;
+}
+
+.glass-toast.show {
+    transform: translateY(0);
+}
+
+.glass-toast.success {
+    border-left: 4px solid #10b981;
+}
+
+.glass-toast.error {
+    border-left: 4px solid #f43f5e;
+}
+
+.glass-toast-icon {
+    font-size: 1.25rem;
+}
+
+.glass-toast.success .glass-toast-icon {
+    color: #10b981;
+}
+
+.glass-toast.error .glass-toast-icon {
+    color: #f43f5e;
+}
+
+.glass-toast-content {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Date Picker styling adjustments */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) sepia(50%) saturate(1000%) hue-rotate(240deg);
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    body {
+        padding: 1rem;
+    }
+}

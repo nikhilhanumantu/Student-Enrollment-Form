@@ -1,0 +1,22 @@
+{
+  "name": "student-enrollment-form-jpdb",
+  "version": "1.0.0",
+  "description": "Student Enrollment Web Form using HTML, CSS, Bootstrap 5, jQuery, and JsonPowerDB.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "jsonpowerdb",
+    "bootstrap5",
+    "jquery",
+    "student-enrollment"
+  ],
+  "author": "Antigravity AI",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

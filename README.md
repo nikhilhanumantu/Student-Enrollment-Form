@@ -7,14 +7,15 @@ A modern, responsive, and state-of-the-art Student Enrollment Web Form designed 
 ## 📋 Table of Contents
 
 1. [About the Project](#-about-the-project)
-2. [Scope of Functionalities](#-scope-of-functionalities)
-3. [Benefits of using JsonPowerDB](#-benefits-of-using-jsonpowerdb)
-4. [Examples of Use](#-examples-of-use)
-5. [Project Directory Structure](#-project-directory-structure)
-6. [Release History](#-release-history)
-7. [Project Status](#-project-status)
-8. [Sources & Reference Links](#-sources--reference-links)
-9. [Other Information](#-other-information)
+2. [Database Configuration](#-database-configuration)
+3. [Scope of Functionalities](#-scope-of-functionalities)
+4. [Benefits of using JsonPowerDB](#-benefits-of-using-jsonpowerdb)
+5. [Examples of Use](#-examples-of-use)
+6. [Project Directory Structure](#-project-directory-structure)
+7. [Release History](#-release-history)
+8. [Project Status](#-project-status)
+9. [Sources & Reference Links](#-sources--reference-links)
+10. [Other Information](#-other-information)
 
 ---
 
@@ -28,6 +29,22 @@ The application strictly implements a **three-state form workflow** depending on
 - **Modern Dark Theme**: Styled with neon purple and pink accents, glowing input highlights, and radial blur backdrops.
 - **Micro-Animations**: Features smooth translate transitions, hover scaling, and glowing shadow effects on buttons.
 - **Client-Side Configuration**: A settings panel is included at the top of the form so developers and users can easily configure their JPDB connection tokens locally without altering any source code.
+
+---
+
+## ⚙️ Database Configuration
+
+To connect this application to your database, you can configure the connection details in the collapsible settings panel at the top of the form:
+
+- **Database Name**: `"SCHOOL-DB"`
+- **Relation Name**: `"STUDENT-TABLE"`
+- **Base URL**: `http://api.login2explore.com:5577`
+- **Primary Key**: `rollNo` (Roll Number)
+
+### How the Connection Token is Kept (Private Storage):
+- **User-Specific Key Storage**: The Connection Token (API Key) is **not hardcoded** in the source files. This prevents credentials from being exposed in public commits or used by others.
+- **LocalStorage Storage**: When you enter your Connection Token in the UI and click **Save Configuration**, the token is stored directly in your browser's private `LocalStorage` memory under the key `jpdb_connection_token`.
+- **Automatic Loading**: The application reads the token locally upon startup. Every user on a different computer keeps their own key privately, ensuring that user keys are never shared or visible to others.
 
 ---
 
